@@ -462,6 +462,11 @@ body {
 .video-container {
     position: relative;
     max-width: 45%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.video-container:hover {
+    transform: scale(1.05);
 }
 
 .video-container img {
@@ -521,10 +526,13 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    transition: transform 0.3s ease-in-out;
 }
 
 .cta-button:hover {
     background-color: #d62828;
+    transform: scale(1.05);
+    
 }
 
 
@@ -587,8 +595,13 @@ body {
     box-sizing: border-box;
     margin-top: 135px;
     font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease-in-out;
 }
 
+.quote-section:hover {
+    transform: scale(1.05);
+
+}
 .quote-section img {
     width: 250px;
     height: 250px;
