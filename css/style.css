@@ -24,7 +24,6 @@ html {
 body {
     width: 100vw;
     overflow-x: hidden;
-    background-color: #0e1c49;
     scroll-behavior: smooth;
     background: linear-gradient(to right, #1a2a44,#2f5187);
     font-family: 'Montserrat', sans-serif;
@@ -119,7 +118,6 @@ body {
     padding: 2rem 5%;
     max-width: 1200px;
     margin: 0 auto;
-    background: linear-gradient(to right, #1a2a44, #2f5187);
     margin-top: 50px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -306,7 +304,6 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 10px;
     color: white;
