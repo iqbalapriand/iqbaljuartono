@@ -270,13 +270,18 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.projects p {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .slider {
     position: relative;
     width: 80%;
     max-width: 800px;
     overflow: hidden;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 40px;
     transition: transform 0.3s ease-in-out;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -284,7 +289,6 @@ body {
 .slider:hover {
     transform: scale(1.05);
 }
-
 
 .slides {
     display: flex;
@@ -310,11 +314,14 @@ body {
     font-size: 24px;
     cursor: pointer;
     z-index: 10;
-    border-radius: 50%; 
+    border-radius: 50%;
+    background-color: rgba(255, 196, 4, 0.3); /* Warna kuning dengan transparansi */
+    backdrop-filter: blur(5px); /* Menambah efek blur di latar belakang */
 }
 
 .prev:hover, .next:hover {
-    color: #FFC300;
+    color: #FFFFFF; /* Mengubah warna teks menjadi putih saat hover */
+    background-color: rgba(255, 196, 4, 0.5); /* Meningkatkan transparansi saat hover */
 }
 
 .prev {
@@ -326,9 +333,12 @@ body {
 }
 
 .slide img {
-    width: 100%px; 
-    height: auto; 
+    width: 100%;
+    height: auto;
 }
+
+
+
 
 /* INTEREST */
 
