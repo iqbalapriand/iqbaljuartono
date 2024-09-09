@@ -100,6 +100,7 @@ body {
     .navbar-links li {
         width: 100%;
         text-align: left;
+        margin-left: 20px;
     }
 
     .navbar-links a {
@@ -114,7 +115,8 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
-    margin-left: auto; /* Push hamburger to the far right */
+    margin-left: 150px; /* Push hamburger to the far right */
+    margin-top: 10px;
 }
 
 .hamburger span {
@@ -156,31 +158,6 @@ body {
     }
 }
 
-/* Tambahkan warna background saat menu terbuka */
-.navbar-links {
-    flex-direction: column;
-    gap: 1rem;
-    width: 30%;
-    margin-top: 1rem;
-    display: none; /* Default: hide the menu */
-    background-color: #f7a621(0, 0, 0, 0.8); /* Background hitam dengan sedikit transparansi */
-    padding: 1rem;
-    border-radius: 5px; /* Tambahkan sudut rounded */
-    outline: 1px solid white;
-}
-
-.navbar.active .navbar-links {
-    display: flex; /* Show the menu when 'active' */
-}
-
-/* Tambahkan warna background yang solid untuk tampilan lebih jelas */
-@media screen and (max-width: 768px) {
-    .navbar-links {
-        background-color: #f7a621(34, 34, 34, 0.95); /* Background lebih gelap, hampir solid */
-        color: white;
-        outline: 1px solid white;
-    }
-}
 
 
 
