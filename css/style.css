@@ -36,7 +36,7 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Mengatur spasi di antara logo dan hamburger */
     align-items: center;
     padding: 1rem 2rem;
     position: relative;
@@ -107,6 +107,81 @@ body {
         width: 100%;
     }
 }
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none; /* Hide hamburger by default */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: auto; /* Push hamburger to the far right */
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Pastikan navbar tetap sejajar */
+    }
+
+    .hamburger {
+        display: flex; /* Display hamburger on smaller screens */
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+        display: none; /* Default: hide the menu */
+    }
+
+    .navbar.active .navbar-links {
+        display: flex; /* Show the menu when 'active' */
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar-links a {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Tambahkan warna background saat menu terbuka */
+.navbar-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 30%;
+    margin-top: 1rem;
+    display: none; /* Default: hide the menu */
+    background-color: #f7a621(0, 0, 0, 0.8); /* Background hitam dengan sedikit transparansi */
+    padding: 1rem;
+    border-radius: 5px; /* Tambahkan sudut rounded */
+    outline: 1px solid white;
+}
+
+.navbar.active .navbar-links {
+    display: flex; /* Show the menu when 'active' */
+}
+
+/* Tambahkan warna background yang solid untuk tampilan lebih jelas */
+@media screen and (max-width: 768px) {
+    .navbar-links {
+        background-color: #f7a621(34, 34, 34, 0.95); /* Background lebih gelap, hampir solid */
+        color: white;
+        outline: 1px solid white;
+    }
+}
+
 
 
 /* HEADER */
@@ -705,7 +780,7 @@ h1 {
 }
 
 .skills-grid img {
-    max-width: 450px;
+    max-width: 350px;
     height: auto;
     transition: transform 0.3s ease;
 }
