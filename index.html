@@ -1,214 +1,907 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portofolio</title>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+.ityped-cursor { 
+    font-weight: 300; 
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
 
-<body>
 
-    <nav class="navbar" id="navbar" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <div class="navbar-brand">
-            <img src="assets/main-qimg-41f557a4ddb2321eb89abaa36d2a6da6.jpeg" alt="Profile" class="navbar-logo">
-            <span class="navbar-title">My Portfolio</span>
-        </div>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <ul class="navbar-links" id="navbarLinks">
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#youtube">Youtube</a></li>
-        </ul>
-    </nav>
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0; 
+    box-sizing: inherit;
+}
+
+html { 
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth !important ;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background: linear-gradient(to right, #1a2a44,#2f5187);
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    height: 100vh;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Mengatur spasi di antara logo dan hamburger */
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto; /* Centers the navbar */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.navbar-logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.navbar-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    margin: 0;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #f7a621;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .navbar-links a {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+    display: none; /* Hide hamburger by default */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: 120px; /* Push hamburger to the far right */
+    margin-top: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Pastikan navbar tetap sejajar */
+    }
+
+    .hamburger {
+        display: flex; /* Display hamburger on smaller screens */
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+        display: none; /* Default: hide the menu */
+    }
+
+    .navbar.active .navbar-links {
+        display: flex; /* Show the menu when 'active' */
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar-links a {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+
+
+/* HEADER */
+
+.landing-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content {
+    max-width: 60%;
+}
+
+.content h1 {
+    font-size: 4rem;
+    color: #f7a621;
+}
+
+.content h2 {
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.content p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    color: #1a2a44;
+    background-color: #fdbf3b;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f7a621;
+}
+
+.image-container {
+    max-width: 35%;
+    margin-top: -50px;
+}
+
+.image-container img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .landing-page {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content, .image-container {
+        max-width: 100%;
+    }
+
+    .image-container {
+        margin-top: 2rem;
+    }
+
+    .content h1 {
+        font-size: 3rem;
+    }
+
+    .content h2 {
+        font-size: 2.4rem;
+    }
+
+    .content p {
+        font-size: 1.4rem;
+    }
+
+    .btn {
+        font-size: 1.4rem;
+    }
+}
+
+/* HIRE */
+
+.why-hire-me {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+}
+
+.why-hire-me h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.qualities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.quality {
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+
+.quality img {
+    border-radius: 50%;
+    border: 2px solid #f7a621;
+    margin-bottom: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+.quality h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #f7a621;
+}
+
+.quality p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .quality {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quality {
+        width: 100%;
+    }
+
+    .quality img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+/* PROJECTS */
+
+.projects-container {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.project-card {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    transition: transform 0.3s ease;
+    outline: 1px solid white;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #f7a621;
+    margin-top: 20px;
+}
+
+.project-card p {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+
+
+
+/* INTEREST */
+
+.cta-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: #1a2d64; 
+    padding: 20px ; 
+    margin: 0; /* Menghapus semua margin */
+    margin-top: 100px;
+    width: 100%; /* Membuat lebar penuh */
+    height: 120px;
+    transition: transform 0.3s ease-in-out;
+    background: linear-gradient(to right, #2f5187, #1a2d64);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cta-container:hover {
+    transform: scale(1.05);
+}
+
+.cta-text {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-right: 20px; 
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-outline {
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+}
+
+.btn-outline:hover {
+    background-color: #3756b0;
+    color: #1a2d64;
+}
+
+.btn-primary {
+    color: #1a2d64;
+    background-color: #fdbf3b;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e0a82e;
+}
+
+.icon {
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .cta-container {
+        flex-direction: column; /* Membuat konten vertikal pada layar lebih kecil */
+        text-align: center;
+        padding: 15px;
+        width: 90%; /* Mengurangi lebar pada layar lebih kecil */
+    }
+
+    .cta-text {
+        margin-right: 0; /* Menghilangkan margin kanan */
+        margin-bottom: 10px; /* Menambahkan jarak bawah antara teks dan tombol */
+        font-size: 1rem; /* Mengurangi ukuran font */
+    }
+
+    .btn {
+        width: 100%; /* Membuat tombol memenuhi lebar kontainer */
+        padding: 10px;
+    }
+
+    .cta-buttons {
+        flex-direction: column; /* Membuat tombol vertikal */
+        gap: 10px; /* Mengurangi jarak antara tombol */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cta-container {
+        width: 100%; /* Memastikan lebar penuh pada layar sangat kecil */
+    }
+
+    .cta-text {
+        font-size: 0.9rem; /* Mengurangi ukuran font lebih lanjut */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Mengurangi ukuran font tombol */
+    }
+}
+
+
+/* Youtube */
+.youtube-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.video-container {
+    position: relative;
+    max-width: 45%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.video-container:hover {
+    transform: scale(1.05);
+}
+
+.video-container img {
+    width: 350px;
+    margin-right: 20px;
+}
+
+.thumbnail {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.play-button img {
+    width: 50px;
+}
+
+.content-container {
+    max-width: 50%;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+
+.content-container h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: white;
+    margin-top: 30px;
+}
+
+.content-container h2 span {
+    color: #fdbf3b;
+}
+
+.content-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #d62828;
+    transform: scale(1.05);
     
-    
+}
 
 
-    <section id="blog" class="landing-page" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <div class="content">
-            <h1 style="font-size: 30px; font-weight: 500;">Hello, I’m Iqbal Apriand Juartono! </h1>
-            <h2 style="font-size: 40px; font-weight: 700;">Graphic Designer Professional And UI/UX Designer</h2>
-            <p style="font-size: 13px;">Hi I am a professional graphic designer who loves graphic design and UI/UX designer. I have a lot of experience in this field, browse my portfolio to see what projects I have completed. As a dedicated and passionate high school graduate, now continuing my undergraduate education at Gunadarma University with a major in informatics.</p>
-            <a href="#contact" class="btn">Get In Touch</a>
-        </div>
-        <div class="image-container">
-            <img src="assets 2/Frame 4.png" alt="Iqbal Apriand">
-        </div>
-    </section>
+@media screen and (max-width: 768px) {
+    .youtube-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .video-container,
+    .content-container {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .content-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-container p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-container h2 {
+        font-size: 1.25rem;
+    }
+
+    .content-container p {
+        font-size: 0.8rem;
+    }
+
+    .cta-button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
 
 
-    <section class="why-hire-me" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <h1 style="font-size: 20px;">Specialized In</h1>
-        <div class="qualities">
-            <div class="quality">
-                <img src="assets/image 2.png" alt="Communicative">
-                <h2>UI/UX Design</h2>
-                <p style="font-size: 11px;">Turn what you have in mind of a digital product into reality. For any platform you consider</p>
-            </div>
-            <div class="quality">
-                <img src="assets/image 3.png" alt="Creative">
-                <h2>Video Editing</h2>
-                <p style="font-size: 11px;">Change and make video content more attractive and interactive in an editing application.</p>
-            </div>
-            <div class="quality">
-                <img src="assets/image 4.png" alt="Collaborative">
-                <h2>Web Development</h2>
-                <p style="font-size: 11px;">Create and maintain your websites and also take care of its performance and traffic capacity</p>
-            </div>
-            <div class="quality">
-                <img src="assets/image 5.png" alt="Cringe">
-                <h2>Graphic Design</h2>
-                <p style="font-size: 11px;">Create an interesting and creative graphic design work and make it into a work such as posters or banners.</p>
-            </div>
-        </div>
-    </section>
+/*Windah Basudaar*/
+
+.quote-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #2f5187, #1a2d64);
+    color: white;
+    padding: 20px;
+    width: 100%;
+    height: 350px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 135px;
+    font-family: 'Montserrat', sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+
+.quote-section:hover {
+    transform: scale(1.05);
+
+}
+.quote-section img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 60px;
+}
+
+.quote-text {
+    flex: 1;
+    max-width: 800px;
+}
+
+.quote-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 10px 0;
+}
+
+.quote-text h4 {
+    font-size: 18px;
+    color: #f7a621;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.quote-text small {
+    font-size: 10px;
+    color: #B0BEC5;
+}
 
 
-    <div id="project" class="projects-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <h1>My Projects</h1>
-        <div class="projects-grid">
-            <!-- Project 1 with Slider -->
-            <div class="project-card">
-                <div class="slider-container">
-                    <div class="slider" id="slider1">
-                        <img src="assets/Untitled-1 1.png" alt="NFT Project Image 1">
-                        <img src="assets/Untitled-2 1.png" alt="NFT Project Image 2">
-                    </div>
-                    <button class="prev" onclick="prevSlide(1)">&#10094;</button>
-                    <button class="next" onclick="nextSlide(1)">&#10095;</button>
-                </div>
-                <h3>NFT Projects</h3>
-                <p>Create 3nft projects in stages, starting from designing nft, creating an official website, to designing social media for the nft project to marketing it until is sold on various platforms</p>
-            </div>
+@media (max-width: 768px) {
+    .quote-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
 
-            <!-- Project 2 with Slider -->
-            <div class="project-card">
-                <div class="slider-container">
-                    <div class="slider" id="slider2">
-                        <img src="assets/Untitled-4 1.png" alt="YouTube Config Image 1">
-                        <img src="assets/Untitled-5 1.png" alt="YouTube Config Image 2">
-                    </div>
-                    <button class="prev" onclick="prevSlide(2)">&#10094;</button>
-                    <button class="next" onclick="nextSlide(2)">&#10095;</button>
-                </div>
-                <h3>Youtube MLBB</h3>
-                <p>Built a YouTube channel since 2023, managing it myself until now, with content about making mobile legends game configs</p>
-            </div>
+    .quote-section img {
+        margin: 0 0 20px 0;
+    }
 
-            <!-- Project 3 with Slider -->
-            <div class="project-card">
-                <div class="slider-container">
-                    <div class="slider" id="slider3">
-                        <img src="assets/Untitled-3.png" alt="Figma Design Image 1">
-                        <img src="assets/Untitled-1 4.png" alt="Figma Design Image 2">
-                    </div>
-                    <button class="prev" onclick="prevSlide(3)">&#10094;</button>
-                    <button class="next" onclick="nextSlide(3)">&#10095;</button>
-                </div>
-                <h3>Graphic Design</h3>
-                <p>create poster, website, mockup, and prototype designs in adobe and figma software </p>
-            </div>
+    .quote-text {
+        max-width: 100%;
+    }
+}
 
-            <!-- Project 4 with Slider -->
-            <div class="project-card">
-                <div class="slider-container">
-                    <div class="slider" id="slider4">
-                        <img src="assets/Untitled-3 1.png" alt="UI/UX Design Image 1">
-                    </div>
-                    <button class="prev" onclick="prevSlide(4)">&#10094;</button>
-                    <button class="next" onclick="nextSlide(4)">&#10095;</button>
-                </div>
-                <h3>UI/UX Design Prototyping</h3>
-                <p>Prototyping design for a mobile application focused on managing livestock using UI/UX design principles.</p>
-            </div>
-        </div>
-    </div>
+@media (max-width: 480px) {
+    .quote-text p {
+        font-size: 16px;
+    }
 
-    <script src="script.js"></script>
+    .quote-text h4 {
+        font-size: 20px;
+    }
+
+    .quote-text small {
+        font-size: 14px;
+    }
+
+    .quote-section img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Tools */
+
+.skills-section {
+    text-align: center;
+    color: white;
+    padding: 50px 20px;
+    border-radius: 8px;
+    max-width: 1100px;
+    margin: 50px auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.skills-section h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+}
+
+.skills-grid img {
+    max-width: 350px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.skills-grid img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .skills-section h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-section h2 {
+        font-size: 24px;
+    }
+}
+
+/* Profile */
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to right, #2f5187, #1a2d64);
+    color: white;
+    padding: 180px;
+    width: 100%;
+    height: 540px;
+    box-sizing: border-box;
+    gap: 20px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-content {
+    max-width: 50%;
+}
+
+.contact-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-content p {
+    margin: 10px 0;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.contact-content .email {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.contact-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-buttons a {
+    text-decoration: none;
+    color: #233e8c;
+    font-weight: bold;
+}
+
+.contact-buttons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.contact-buttons img:hover {
+    transform: scale(1.1);
+}
+
+.email-button {
+    background-color: #fdbf3b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #0E4A8E;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.email-button:hover {
+    background-color: #f7a621;
+}
+
+.contact-image {
+    max-width: 50%;
+}
+
+.contact-image img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .contact-content {
+        max-width: 100%;
+    }
+
+    .contact-image {
+        max-width: 80%;
+        margin-top: 20px;
+    }
+
+    .contact-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-content h2 {
+        font-size: 24px;
+    }
+
+    .contact-buttons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .email-button {
+        padding: 8px 15px;
+    }
+}
 
 
-   <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-    <div class="cta-container">
-        <div class="cta-text">
-            Interested working with me?
-        </div>
-        <div class="cta-buttons">
-            <a href="#project" class="btn btn-outline">See more project</a>
-            <a href="#contact" class="btn btn-primary">Email me</a>
-        </div>
-    </div>
-   </div> 
 
 
 
-    <div id="youtube" class="youtube-section" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <div class="video-container">
-            <img src="assets/Button.png" alt="YouTube Thumbnail" class="thumbnail">
-        </div>
-        <div class="content-container">
-            <h2 class="h1-youtube" >Why I Started A <span> YouTube Channel? </span> </h2>
-            <p style="font-size: 12px;">First, I would like to share my experience playing in the bang bang mobile legends game world for 5 years. Secondly, I want to share my skills in modifying game files and providing them to mobile legends players so that their game remains smooth on less devices and the last, I really like editing and designing my own youtube channel.</p>
-            <a href="https://www.youtube.com/@vaallsofficials" class="cta-button">Visit My Channel</a>
-        </div>
-    </div>
 
-<div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-    <div class="quote-section" >
-        <img src="assets/xOrX6_WEB-WINDAH-BA.png" alt="Windah Basudara">
-        <div class="quote-text">
-            <p>"Menurut saya mimpi TIDAK ADA YANG GAGAL, yang ada hanyalah mimpi yang TERTUNDA, sekiranya merasa gagal dalam mencapai jangan khawatir, ada mimpi-mimpi lain BISA DICIPTAKAN."</p>
-            <h4>Windah Basudara</h4>
-            <small>Youtuber Gaming</small>
-        </div>
-    </div>
-</div>
-
-
-    <div class="skills-section" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <h2>Tools & Skills</h2>
-        <div class="skills-grid">
-            <img src="assets 2/Untitled-1.png" alt="Tools & Skills">
-        </div>
-    </div>
-
-
-    <div id="contact" class="contact-section" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-        <div class="contact-content">
-            <h2>Get In Touch</h2>
-            <p>For business inquiry please send an email to</p>
-            <h3 style="margin-bottom: 20px; font-size: 13px;">iqbalapriand@gmail.com</h3>
-            <div class="contact-buttons">
-                <a href="mailto:iqbalapriand@gmail.com" class="email-button">Email Me</a>
-                <div class="social-icons" style="margin-left: 20px;">
-                    <a href="https://wa.me/+6281218162078"><img style="width: 18px; height: 18px; margin-right: 15px;" src="assets 2/whatsapp_symbol.svg.png" alt="YouTube"></a>
-                    <a href="https://www.youtube.com/@vaallsofficials"><img style="width: 22px; height: 18px; margin-right: 15px;" src="assets 2/youtube_symbol.svg.png" alt="WhatsApp"></a>
-                    <a href="https://www.instagram.com/vaallstud/"><img style="width: 18px; height: 18px;" src="assets 2/Logo.svg.png" alt="Instagram"></a>
-                </div>
-            </div>
-        </div>
-        <div class="contact-image">
-            <img src="assets 2/Frame 4.png" alt="Contact Person">
-        </div>
-    </div>
-
-    
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    AOS.init();
-</script>
-
-
-
-</body>
-
-</html>
