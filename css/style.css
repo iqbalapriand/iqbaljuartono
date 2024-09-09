@@ -115,7 +115,7 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
-    margin-left: 150px; /* Push hamburger to the far right */
+    margin-left: 100px; /* Push hamburger to the far right */
     margin-top: 10px;
 }
 
