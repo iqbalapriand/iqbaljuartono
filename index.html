@@ -3,7 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portofolio</title>
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <meta charset="UTF-8">
@@ -11,6 +10,7 @@
 </head>
 
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
 
     <nav class="navbar" id="navbar" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
         <div class="navbar-brand">
@@ -35,7 +35,7 @@
 
     <section id="blog" class="landing-page" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
         <div class="content">
-            <h1 style="font-size: 30px; font-weight: 500;">Hello, I’m Iqbal Apriand Juartono! </h1>
+            <h1 id="typing-text" style="font-size: 30px; font-weight: 500;"></h1>
             <h2 style="font-size: 40px; font-weight: 700;">Graphic Designer Professional And UI/UX Designer</h2>
             <p style="font-size: 13px;">Hi I am a professional graphic designer who loves graphic design and UI/UX designer. I have a lot of experience in this field, browse my portfolio to see what projects I have completed. As a dedicated and passionate high school graduate, now continuing my undergraduate education at Gunadarma University with a major in informatics.</p>
             <a href="#contact" class="btn">Get In Touch</a>
@@ -210,7 +210,19 @@
     AOS.init();
 </script>
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Typed('#typing-text', {
+            strings: ["Hello, I'm Iqbal Apriand Juartono!"],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true,
+            showCursor: true,
+            cursorChar: '',
+            autoInsertCss: true
+        });
+    });
+    </script>
 
 </body>
 
