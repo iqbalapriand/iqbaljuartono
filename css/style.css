@@ -902,6 +902,46 @@ h1 {
 
 
 
+/* animasi css */
+.typed-cursor {
+    opacity: 1;
+    animation: blink 0.7s infinite;
+    color: #f7a621;
+}
+
+.typing-text {
+    margin-bottom: 50px;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Update the responsive styles for the typing text */
+@media screen and (max-width: 768px) {
+    #typing-text {
+        font-size: 24px !important;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #typing-text {
+        font-size: 20px !important;
+        font-family: 'Montserrat', sans-serif;
+    }
+}
+
+/* Update the existing landing-page class to better handle the typing animation */
+.landing-page .content h1 {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    color: #f7a621;
+}
+
 
 
 
