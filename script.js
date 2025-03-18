@@ -34,12 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-
-
-
 document.getElementById('hamburger').addEventListener('click', function() {
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('active');
