@@ -384,7 +384,7 @@ function createDynamicBlueParticle(e, container) {
     };
 }
 
-// Initialize additional effects
+// Initialize additional effect
 document.addEventListener('DOMContentLoaded', function() {
     addRippleEffect();
     // Uncomment the line below if you want custom scroll (might interfere with normal scrolling)
