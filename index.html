@@ -41,24 +41,24 @@
         
         <div class="content">
             <h1 id="typing-text" style="font-size: 30px; font-weight: 500;"></h1>
-            <h2 style="font-size: 40px; font-weight: 700;">Graphic Designer              And UI/UX Designer</h2>
-            <p style="font-size: 13px;">Hi, I'm a graphic and UI/UX designer with extensive experience in the field. Passionate about design and technology, I'm currently pursuing an Informatics degree at Gunadarma University. Check out my portfolio to see my work!</p>
+            <h2 style="font-size: 40px; font-weight: 700;">Graphic Designer And UI/UX Designer</h2>
+            <p style="font-size: 13px;">Hi, I'm a juni graphic and UI/UX designer with extensive experience in the field. Passionate about design and technology, I'm currently pursuing an Informatics degree at Gunadarma University. Check out my portfolio to see my work!</p>
             <div class="action-container">
                 <a href="#contact" class="btn">Get In Touch</a>
                 <div class="social-icons">
                     <a href="https://discord.gg/yourlink" target="_blank" class="social-icon">
                         <i class="fab fa-discord"></i>
                     </a>
-                    <a href="https://github.com/iqbalapriand" target="_blank" class="social-icon">
+                    <a href="https://github.com/yourusername" target="_blank" class="social-icon">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/iqbalapriand/" target="_blank" class="social-icon">
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-icon">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://instagram.com/vaallstud" target="_blank" class="social-icon">
+                    <a href="https://instagram.com/yourhandle" target="_blank" class="social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.youtube.com/@vaallsyt" target="_blank" class="social-icon">
+                    <a href="https://youtube.com/channel/yourchannelid" target="_blank" class="social-icon">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -142,11 +142,19 @@
     
     <canvas id="particleCanvas"></canvas>
 
-    <div id="project" class="projects-container" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+    <div id="project" class="projects-container">
         <h1>My Projects</h1>
-        <div class="projects-grid" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
-            <!-- Project 1 with Slider -->
-            <div class="project-card">
+        
+        <!-- Category Filter Buttons -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">All Projects</button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="coding">Coding</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Design Projects -->
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider1">
                         <img src="assets/Feeds.png" alt="NFT Project Image 1">
@@ -170,10 +178,11 @@
                     <button class="next" type="button">&#10095;</button>
                 </div>
                 <h3>Feeds</h3>
+                <span class="project-type">Design</span>
+                <p>Social media feed designs with modern aesthetics and engaging visual elements.</p>
             </div>
-    
-            <!-- Project 2 with Slider -->
-            <div class="project-card">
+
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider2">
                         <img src="assets/Poster.png" alt="YouTube Config Image 1">
@@ -188,27 +197,29 @@
                     <button class="next" type="button">&#10095;</button>
                 </div>
                 <h3>Poster</h3>
+                <span class="project-type">Design</span>
+                <p>Creative poster designs for various events and promotional materials.</p>
             </div>
-    
-            <!-- Project 3 with Slider -->
-            <div class="project-card">
+
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider3">
                         <img src="assets/printing.png" alt="Figma Design Image 1">
+                        <img src="assets/Print/1.png" alt="Figma Design Image 1">
                         <img src="assets/Print/2.png" alt="Figma Design Image 1">
                         <img src="assets/Print/3.png" alt="Figma Design Image 1">
-                        <img src="assets/Print/1.png" alt="Figma Design Image 1">
                         <img src="assets/Print/4.png" alt="Figma Design Image 1">
                         <img src="assets/Print/5.jpg" alt="Figma Design Image 1">
                     </div>
                     <button class="prev" type="button">&#10094;</button>
                     <button class="next" type="button">&#10095;</button>
                 </div>
-                <h3>Printing </h3>
+                <h3>Printing</h3>
+                <span class="project-type">Design</span>
+                <p>Print design materials including brochures, flyers, and marketing collateral.</p>
             </div>
-    
-            <!-- Project 4 with Slider -->
-            <div class="project-card">
+
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider4">
                         <img src="assets/Thumb.png" alt="UI/UX Design Image 1">
@@ -219,11 +230,12 @@
                     <button class="prev" type="button">&#10094;</button>
                     <button class="next" type="button">&#10095;</button>
                 </div>
-                <h3>Thumbnail </h3>
+                <h3>Thumbnail</h3>
+                <span class="project-type">Design</span>
+                <p>Eye-catching thumbnail designs for YouTube videos and social media content.</p>
             </div>
-    
-            <!-- Project 5 with Slider -->
-            <div class="project-card">
+
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider5">
                         <img src="assets/Product.png" alt="Project 5 Image 1">
@@ -233,23 +245,85 @@
                     <button class="next" type="button">&#10095;</button>
                 </div>
                 <h3>NFT</h3>
+                <span class="project-type">Design</span>
+                <p>Digital art and NFT collection designs with unique artistic concepts.</p>
             </div>
-    
-            <!-- Project 6 with Slider -->
-            <div class="project-card">
+
+            <div class="project-card" data-category="design">
                 <div class="slider-container">
                     <div class="slider" id="slider6">
                         <img src="assets/UIUXX.png" alt="Project 6 Image 1">
-                        <img src="assets/UIUX/Artboard 1-2.png" alt="UI/UX Design Image 1">
+                        <img src="assets/UIUX/Artboard 1-2-1.png" alt="UI/UX Design Image 1">
                     </div>
                     <button class="prev" type="button">&#10094;</button>
                     <button class="next" type="button">&#10095;</button>
                 </div>
                 <h3>UI/UX</h3>
+                <span class="project-type">Design</span>
+                <p>User interface and user experience designs for web and mobile applications.</p>
+            </div>
+
+            <!-- Coding Projects (Examples - You can replace with your actual coding projects) -->
+            <div class="project-card" data-category="coding">
+                <div class="slider-container">
+                    <div class="slider" id="slider7">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=E-Commerce+Platform" alt="E-commerce Platform">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Product+Dashboard" alt="Product Dashboard">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Checkout+System" alt="Checkout System">
+                    </div>
+                    <button class="prev" type="button">&#10094;</button>
+                    <button class="next" type="button">&#10095;</button>
+                </div>
+                <h3>E-Commerce Platform</h3>
+                <span class="project-type">Coding</span>
+                <p>Full-stack e-commerce application built with React, Node.js, and MongoDB with payment integration.</p>
+            </div>
+
+            <div class="project-card" data-category="coding">
+                <div class="slider-container">
+                    <div class="slider" id="slider8">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Task+Manager+App" alt="Task Manager">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Dashboard+View" alt="Dashboard">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Team+Collaboration" alt="Team Features">
+                    </div>
+                    <button class="prev" type="button">&#10094;</button>
+                    <button class="next" type="button">&#10095;</button>
+                </div>
+                <h3>Task Manager App</h3>
+                <span class="project-type">Coding</span>
+                <p>Collaborative task management application with real-time updates and team features.</p>
+            </div>
+
+            <div class="project-card" data-category="coding">
+                <div class="slider-container">
+                    <div class="slider" id="slider9">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Weather+Dashboard" alt="Weather App">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Forecast+View" alt="Weather Forecast">
+                    </div>
+                    <button class="prev" type="button">&#10094;</button>
+                    <button class="next" type="button">&#10095;</button>
+                </div>
+                <h3>Weather Dashboard</h3>
+                <span class="project-type">Coding</span>
+                <p>Interactive weather application with geolocation, forecasts, and beautiful data visualizations.</p>
+            </div>
+
+            <div class="project-card" data-category="coding">
+                <div class="slider-container">
+                    <div class="slider" id="slider10">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Social+Media+API" alt="API Project">
+                        <img src="https://via.placeholder.com/400x300/1a1a1a/3FA2F6?text=Documentation" alt="API Docs">
+                    </div>
+                    <button class="prev" type="button">&#10094;</button>
+                    <button class="next" type="button">&#10095;</button>
+                </div>
+                <h3>Social Media API</h3>
+                <span class="project-type">Coding</span>
+                <p>RESTful API for social media platform with authentication, posts, and user management.</p>
             </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 
 
@@ -415,7 +489,7 @@
 
 
 <body>
-    <div class="contact-section">
+    <div class="contact-section" id="contact">
         <div class="content-wrapper">
             <div class="contact-content" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
                 <h2>Get In Touch</h2>
@@ -438,7 +512,7 @@
                         <a href="https://www.linkedin.com/in/iqbalapriand/" class="social-icon" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="700">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.instagram.com/vaallstud/" class="social-icon" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800">
+                        <a href="https://www.instagram.com/iqbalapriand/" class="social-icon" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800">
                             <i class="fab fa-instagram"></i>
                         </a>
                         <a href="https://www.youtube.com/@vaallsyt" class="social-icon" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="900">
