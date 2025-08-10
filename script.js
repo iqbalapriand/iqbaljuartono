@@ -47,7 +47,9 @@ function filterProjects(category) {
     event.target.classList.add('active');
     
     // Add fade out effect
-    projectsGrid.classList.add('fade-out');
+    if (projectsGrid) {
+        projectsGrid.classList.add('fade-out');
+    }
     
     setTimeout(() => {
         projectCards.forEach(card => {
@@ -62,101 +64,28 @@ function filterProjects(category) {
         });
         
         // Remove fade out effect
-        projectsGrid.classList.remove('fade-out');
+        if (projectsGrid) {
+            projectsGrid.classList.remove('fade-out');
+        }
     }, 250);
 }
 
-// Initialize everything when DOM loads
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize sliders
-    for (let i = 1; i <= 10; i++) {
-        showSlide(i, 0);
-    }
-    
-    // Add click event listeners to slider navigation buttons
-    const prevButtons = document.querySelectorAll('.prev');
-    const nextButtons = document.querySelectorAll('.next');
-    
-    prevButtons.forEach((button, index) => {
-        button.addEventListener('click', (event) => {
-            prevSlide(index + 1, event);
-        });
-    });
-    
-    nextButtons.forEach((button, index) => {
-        button.addEventListener('click', (event) => {
-            nextSlide(index + 1, event);
-        });
-    });
-    
-    // Add event listeners to filter buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            const category = this.getAttribute('data-category');
-            filterProjects(category);
-        });
-    });
-    
-    // Hamburger menu functionality (if exists)
-    const hamburger = document.getElementById('hamburger');
-    const navbar = document.getElementById('navbar');
-    
-    if (hamburger && navbar) {
-        hamburger.addEventListener('click', function() {
-            navbar.classList.toggle('active');
-        });
-        
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('.navbar-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navbar.classList.remove('active');
-            });
-        });
-        
-        // Shrink navbar on scroll
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    }
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Initialize interactive animations for qualities section (if exists)
-    initializeQualitiesAnimations();
-    
-    // Initialize CTA animations (if exists)
-    initializeCTAAnimations();
-});
+// Intersection Observer for skills animations
+const skillsObserverOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
 
-// Custom smooth scroll with wheel event (optional - can be removed if causing issues)
-function initCustomScroll() {
-    document.addEventListener('wheel', function(e) {
-        if (e.deltaY !== 0) {
-            e.preventDefault();
-            window.scrollBy({
-                top: e.deltaY * 0.8, // Adjust scroll speed
-                behavior: 'smooth'
-            });
+const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 100);
+            skillsObserver.unobserve(entry.target);
         }
-    }, { passive: false });
-}
+    });
+}, skillsObserverOptions);
 
 // Button ripple effect
 function addRippleEffect() {
@@ -215,7 +144,7 @@ function initializeQualitiesAnimations() {
     });
     
     // Intersection observer for entrance animations
-    const observer = new IntersectionObserver((entries) => {
+    const qualitiesObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 qualities.forEach((quality, index) => {
@@ -224,7 +153,7 @@ function initializeQualitiesAnimations() {
                         quality.style.transform = 'translateY(0)';
                     }, 150 * index);
                 });
-                observer.unobserve(entry.target);
+                qualitiesObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
@@ -238,7 +167,7 @@ function initializeQualitiesAnimations() {
     
     const qualitiesContainer = document.querySelector('.qualities');
     if (qualitiesContainer) {
-        observer.observe(qualitiesContainer);
+        qualitiesObserver.observe(qualitiesContainer);
     }
 }
 
@@ -384,9 +313,195 @@ function createDynamicBlueParticle(e, container) {
     };
 }
 
-// Initialize additional effect
+// Custom smooth scroll with wheel event (optional - can be removed if causing issues)
+function initCustomScroll() {
+    document.addEventListener('wheel', function(e) {
+        if (e.deltaY !== 0) {
+            e.preventDefault();
+            window.scrollBy({
+                top: e.deltaY * 0.8, // Adjust scroll speed
+                behavior: 'smooth'
+            });
+        }
+    }, { passive: false });
+}
+
+// Hamburger menu functionality - Debug version
+function initializeHamburgerMenu() {
+    console.log('🚀 Starting hamburger menu initialization...');
+    
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+    const navbarLinks = document.getElementById('navbarLinks');
+    
+    console.log('🔍 Elements found:');
+    console.log('Hamburger:', hamburger);
+    console.log('Navbar:', navbar);
+    console.log('NavbarLinks:', navbarLinks);
+    
+    if (!hamburger) {
+        console.error('❌ Hamburger button not found');
+        return;
+    }
+    
+    if (!navbar) {
+        console.error('❌ Navbar not found');
+        return;
+    }
+    
+    console.log('✅ All required elements found, adding event listeners...');
+    
+    // Simple click handler
+    hamburger.onclick = function() {
+        console.log('🍔 Hamburger clicked!');
+        console.log('Current navbar classes:', navbar.className);
+        
+        if (navbar.classList.contains('active')) {
+            console.log('📱 Removing active class');
+            navbar.classList.remove('active');
+        } else {
+            console.log('📱 Adding active class');
+            navbar.classList.add('active');
+        }
+        
+        console.log('New navbar classes:', navbar.className);
+    };
+    
+    // Also try addEventListener as backup
+    hamburger.addEventListener('click', function(e) {
+        console.log('🔄 Event listener triggered');
+        e.preventDefault();
+        e.stopPropagation();
+    });
+    
+    // Close menu when clicking a nav link
+    if (navbarLinks) {
+        const navLinks = navbarLinks.querySelectorAll('a');
+        console.log('🔗 Found', navLinks.length, 'nav links');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('🔗 Nav link clicked, closing menu');
+                navbar.classList.remove('active');
+            });
+        });
+    }
+    
+    // Shrink navbar on scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    console.log('✅ Hamburger menu initialization complete!');
+}
+
+// Alternative simple version - langsung di DOMContentLoaded
+function initSimpleHamburger() {
+    console.log('🔧 Trying simple hamburger...');
+    
+    // Wait a bit more to ensure DOM is fully loaded
+    setTimeout(() => {
+        const hamburger = document.querySelector('#hamburger');
+        const navbar = document.querySelector('#navbar');
+        
+        console.log('Simple check - Hamburger:', hamburger);
+        console.log('Simple check - Navbar:', navbar);
+        
+        if (hamburger && navbar) {
+            hamburger.addEventListener('click', function() {
+                console.log('✨ Simple hamburger clicked!');
+                navbar.classList.toggle('active');
+                console.log('Navbar classes now:', navbar.classList.toString());
+            });
+        }
+    }, 1000);
+}
+
+// Initialize everything when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded');
+    
+    // Initialize sliders
+    for (let i = 1; i <= 10; i++) {
+        showSlide(i, 0);
+    }
+    
+    // Add click event listeners to slider navigation buttons
+    const prevButtons = document.querySelectorAll('.prev');
+    const nextButtons = document.querySelectorAll('.next');
+    
+    prevButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => {
+            prevSlide(index + 1, event);
+        });
+    });
+    
+    nextButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => {
+            nextSlide(index + 1, event);
+        });
+    });
+    
+    // Add event listeners to filter buttons
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            const category = this.getAttribute('data-category');
+            filterProjects(category);
+        });
+    });
+    
+    // Initialize hamburger menu - Debug version
+    console.log('🚀 About to initialize hamburger menu...');
+    initializeHamburgerMenu();
+    
+    // Try alternative method too
+    initSimpleHamburger();
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Initialize skills animations
+    const skillCards = document.querySelectorAll('.skill-card');
+    if (skillCards.length > 0) {
+        skillCards.forEach(card => {
+            skillsObserver.observe(card);
+        });
+        
+        // Add additional hover effects for skills
+        skillCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    }
+    
+    // Initialize interactive animations for qualities section (if exists)
+    initializeQualitiesAnimations();
+    
+    // Initialize CTA animations (if exists)
+    initializeCTAAnimations();
+    
+    // Initialize ripple effects
     addRippleEffect();
+    
     // Uncomment the line below if you want custom scroll (might interfere with normal scrolling)
     // initCustomScroll();
 });
